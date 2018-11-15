@@ -9,85 +9,83 @@
                 <template>
                     <Row>
                         <Col span="15">
-                            <Button type="info" @click="openAddModal(null)"><Icon type="plus"></Icon>&nbsp;添加募捐</Button>
-                            <Button :disabled="setting.loading" type="success" @click="getData"><Icon type="refresh"></Icon>&nbsp;刷新数据</Button>
-                            <Button type="primary" @click="exportData(1)"><Icon type="ios-download-outline"></Icon>&nbsp;导出表格</Button>
+                            <Button type="info" @click="openAddModal(null)">
+                                <Icon type="plus"></Icon>&nbsp;添加募捐
+                            </Button>
+                            <Button :disabled="setting.loading" type="success" @click="getData">
+                                <Icon type="refresh"></Icon>&nbsp;刷新数据
+                            </Button>
+                            <Button type="primary" @click="exportData(1)">
+                                <Icon type="ios-download-outline"></Icon>&nbsp;导出表格
+                            </Button>
                         </Col>
                         <Col span="9">
                             <Input v-model="search.value" placeholder="请输入您想要搜索的内容..." class="margin-bottom-10">
-                                <Button slot="append" icon="ios-search"></Button>
+                            <Button slot="append" icon="ios-search"></Button>
                             </Input>
                         </Col>
                     </Row>
-                    <Table ref="table"  class="margin-bottom-10"
-                         :columns="columns" :loading="setting.loading"  :border="setting.showBorder" :data="data.records"></Table>
-                    <Page :total="data.total" class="tr" @on-change="pageChange" :current.sync="data.current" :page-size="data.size"
-                      @on-page-size-change="pageSizeChange" show-elevator show-sizer></Page>
+                    <Table ref="table" class="margin-bottom-10"
+                           :columns="columns" :loading="setting.loading" :border="setting.showBorder"
+                           :data="data.records"></Table>
+                    <Page :total="data.total" class="tr" @on-change="pageChange" :current.sync="data.current"
+                          :page-size="data.size"
+                          @on-page-size-change="pageSizeChange" show-elevator show-sizer></Page>
                 </template>
             </div>
         </Card>
-        <Modal v-model="removeModal" width="360">
-            <p slot="header" style="color:#f60;text-align:center">
-                <Icon type="information-circled"></Icon>
-                <span>提示</span>
-            </p>
-            <div style="text-align:center">
-                <p>此操作为不可逆操作，是否确认删除？</p>
-            </div>
-            <div slot="footer">
-                <Button type="error" size="large" long :loading="setting.loading" @click="removeUser">确认删除</Button>
-            </div>
-        </Modal>
-        <AddUser v-if="addUserModal" :roles="roles" @cancel="onModalCancel"/>
-        <UpdateUser v-if="updateUserModal" :roles="roles" :uid="updateUserId" @cancel="onModalCancel"/>
-        <ResetPassword v-if="resetPasswordModal" :user="resetPasswordUser" @cancel="onModalCancel"/>
+
+        <AddDonation v-if="addDonationModal" :donationType="donationType" @cancel="onModalCancel"/>
+        <UpdateDonation v-if="updateDonationModal" :donationType="donationType" :donationId="updateDonationId"
+                        @cancel="onModalCancel"/>
     </div>
 </template>
 <script>
     import dayjs from 'dayjs'
-    import { post } from '@/libs/axios-cfg'
-    import AddUser from './components/add.vue'
-    import UpdateUser from './components/update.vue'
-    import ResetPassword from './components/reset-password.vue'
+    import {post} from '@/libs/axios-cfg'
+    import AddDonation from './components/add.vue'
+    import UpdateDonation from './components/update.vue'
+
     export default {
-        data () {
+        data() {
             return {
-                addUserModal:false,
-                updateUserModal:false,
-                resetPasswordModal:false,
-                updateUserId:null,
-                resetPasswordUser:null,
-                selections:[],
-                removeModal:false,
-                setting:{
-                    loading:true,
-                    showBorder:true
+                addDonationModal: false,
+                updateDonationModal: false,
+                resetPasswordModal: false,
+                updateDonationId: null,
+                resetPasswordUser: null,
+                selections: [],
+                removeModal: false,
+                setting: {
+                    loading: true,
+                    showBorder: true
                 },
-                search:{
-                    type:'name',
-                    value:''
+                search: {
+                    type: 'name',
+                    value: ''
                 },
                 columns: [
-                    {title: 'ID', key: 'id',sortable: true},
-                    {title: '姓名', key: 'username',sortable: true},
-                    {title: '年龄',key: 'age',sortable: true},
+                    {title: 'ID', key: 'donationId', sortable: true},
+                    {title: '姓名', key: 'name', sortable: true},
+                    {title: '年龄', key: 'age', sortable: true},
                     {
                         title: '状态',
-                        key: 'status', 
-                        render:(h,params)=>{
+                        key: 'status',
+                        render: (h, params) => {
                             return h('span',
                                 {
-                                    style: {color: params.row.status == 1 ? 'green' : 'red'
-                                }
-                            }, params.row.status == 1 ? '正常' : '锁定中')
+                                    style: {
+                                        color: params.row.status == 1 ? 'green' : 'red'
+                                    }
+                                }, params.row.status == 1 ? '正常' : '关闭')
                         },
                         sortable: true
                     },
                     {
                         title: '创建日期',
                         key: 'createTime',
-                        render:(h,params)=>{
-                            return h('span',dayjs(params.row.createDate).format('YYYY年MM月DD日 HH:mm:ss'))
+                        render: (h, params) => {
+                            return h('span', dayjs(params.row.createTime).format('YYYY年MM月DD日 HH:mm:ss'))
                         },
                         sortable: true
                     },
@@ -99,111 +97,91 @@
                         render: (h, params) => {
                             return h('div', [
                                 h('Button', {
-                                    props: {type: params.row.status == 1 ? 'success' : 'warning' ,size: 'small'},
+                                    props: {type: params.row.status == 1 ? 'success' : 'warning', size: 'small'},
                                     style: {marginRight: '5px'},
-                                    on:{
-                                        click:()=>{
+                                    on: {
+                                        click: () => {
                                             this.lockUser(params.row)
                                         }
                                     }
-                                }, params.row.status == 1 ? '锁定' : '恢复'),
+                                }, params.row.status == 1 ? '关闭' : '恢复'),
                                 h('Button', {
-                                    props: {type: 'primary',size: 'small'},
+                                    props: {type: 'primary', size: 'small'},
                                     style: {marginRight: '5px'},
-                                    on:{
-                                        click:()=>{
+                                    on: {
+                                        click: () => {
                                             this.openAddModal(params.row.id)
                                         }
                                     }
                                 }, '修改'),
-                                h('Button', {
-                                    props: {type: 'info',size: 'small'},
-                                    style: {marginRight: '5px'},
-                                    on:{
-                                        click:()=>{
-                                            this.openAddModal(params.row,'resetPassword')
-                                        }
-                                    }
-                                }, '重置密码'),
-                                h('Button', {
-                                    props: {type: 'error',size: 'small'},
-                                    on:{
-                                        click:()=>{
-                                            this.removeObject = {
-                                                obj:params.row,
-                                                index:params.index
-                                            }
-                                            this.removeModal = true;
-                                        }
-                                    }
-                                }, '删除')
                             ]);
                         }
                     }
                 ],
                 data: {},
-                dataFilter:{
-                    page:1,
-                    pageSize:10
+                dataFilter: {
+                    page: 1,
+                    pageSize: 10
                 },
-                removeObject:null,
-                roles:null
+                removeObject: null,
+                donationType: null
             }
         },
-        components:{
-            AddUser,UpdateUser,ResetPassword
+        components: {
+            AddDonation, UpdateDonation
         },
-        created(){
+        created() {
             this.getData();
         },
-        methods:{
+        methods: {
             /**
              * @description 分页更换事件回调
              */
-            pageChange(p){
+            pageChange(p) {
                 this.dataFilter.page = p;
                 this.getData();
             },
             /**
              * @description 分页每页显示数量改变事件回调
              */
-            pageSizeChange(p){
+            pageSizeChange(p) {
                 this.dataFilter.pageSize = p;
                 this.getData();
             },
             /**
              * @description 删除用户
              */
-            async removeUser(){
+            async removeUser() {
                 this.removeModal = false;
-                if(this.removeObject==null){
+                if (this.removeObject == null) {
                     this.$Message.warning("删除对象为空，无法继续执行！");
                     return false;
                 }
                 this.setting.loading = true;
                 try {
-                    let res = await post('/system/user/remove/{uid}',null,{
+                    let res = await post('/system/user/remove/{uid}', null, {
                         uid: this.removeObject.obj.id
-                    })
+                    });
                     this.$Message.success("删除成功");
-                    this.data.records.splice(this.removeObject.index,1);
+                    this.data.records.splice(this.removeObject.index, 1);
                 } catch (error) {
                     this.$throw(error)
                 }
                 this.setting.loading = false;
             },
             /**
-             * @description 锁定/解锁用户
+             * @description 关闭/开启公益项目
              */
-            async lockUser(obj){
+            async lockUser(obj) {
+                console.log(obj.donationId)
                 this.setting.loading = true;
                 let status = obj.status;
-                let req_url = status==1 ? 'lock' : 'unlock';
-                let req_rep = status==1 ? 0 : 1;
-                let req_msg = status==1 ? '已锁定' : '已解锁';
+                let req_url = status == 1 ? 'lock' : 'unlock';
+                let req_rep = status == 1 ? 0 : 1;
+                let req_msg = status == 1 ? '已锁定' : '已解锁';
                 try {
-                    let res = await post('/system/user/{method}/{uid}',null,{
-                        uid: obj.id,
+                    let res = await post('/charitable/one2one/{method}/{donationId}', null, {
+                        donationId: obj.donationId,
                         method: req_url
                     })
                     this.$Message.destroy();
@@ -217,12 +195,12 @@
             /**
              * @description 获取用户列表
              */
-            async getData(){
+            async getData() {
                 this.setting.loading = true;
                 try {
-                    let res = await post('/system/user/list',{
-                        page:this.dataFilter.page,
-                        pageSize:this.dataFilter.pageSize
+                    let res = await post('/charitable/one2one/list', {
+                        page: this.dataFilter.page,
+                        pageSize: this.dataFilter.pageSize
                     })
                     this.data = res.data;
                 } catch (error) {
@@ -230,39 +208,30 @@
                 }
                 this.setting.loading = false;
             },
-            /**
-             * @description 获取角色列表
-             */
-            async getRoleList(){
+            async getDonationType() {
                 try {
-                    let res = await post('/system/role/list',{
-                        page:1,
-                        pageSize:1000
-                    })
-                    this.roles = res.data.records;
+                    let res = await post('/charitable/one2one/donationType');
+                    this.donationType = res.data;
                 } catch (error) {
                     this.$throw(error)
                 }
             },
-             /**
+            /**
              * @description 打开模态窗口
-             * @param uid 用户ID
+             * @param donationId 公益id
              * @param type 打开类型
              */
-            openAddModal(uid,type = 'update'){
-                if(uid==null || type==='update'){
-                    if(this.roles==null){
-                        this.getRoleList();
+            openAddModal(donationId, type = 'update') {
+                if (donationId == null || type === 'update') {
+                    if (this.donationType == null) {
+                        this.getDonationType();
                     }
                 }
-                if(uid==null){
-                    this.addUserModal = true;
-                }else if(type==='update'){
-                    this.updateUserId = uid;
-                    this.updateUserModal = true;
-                }else{
-                    this.resetPasswordUser = uid;
-                    this.resetPasswordModal = true;
+                if (donationId == null) {
+                    this.addDonationModal = true;
+                } else if (type === 'update') {
+                    this.updateDonationId = uid;
+                    this.updateDonationModal = true;
                 }
             },
             /**
@@ -270,28 +239,29 @@
              * @param type 窗口类型
              * @param reload 是否重新加载数据
              */
-            onModalCancel(type,reload = false){
-                switch(type){
-                    case 'add':{
-                        this.addUserModal = false;
-                    };break;
-                    case 'update':{
-                        this.updateUserModal = false;
-                    };break;
-                    case 'resetPassword':{
-                        this.resetPasswordModal = false;
-                    };break;
+            onModalCancel(type, reload = false) {
+                switch (type) {
+                    case 'add': {
+                        this.addDonationModal = false;
+                    }
+                        break;
+                    case 'update': {
+                        this.updateDonationModal = false;
+                    }
+                        break;
                 }
-                if(reload) this.getData();
+                if (reload) {
+                    this.getData();
+                }
             },
             /**
              * @description 导出表格CSV
              */
-            exportData(type){
+            exportData(type) {
                 if (type === 1) {
                     this.$refs.table.exportCsv({
-                        filename: '用户数据-'+new Date().getTime(),
-                        columns: this.columns.filter((col, index) => index > 1 && index < this.columns.length-1),
+                        filename: '用户数据-' + new Date().getTime(),
+                        columns: this.columns.filter((col, index) => index > 1 && index < this.columns.length - 1),
                         data: this.data
                     });
                 }

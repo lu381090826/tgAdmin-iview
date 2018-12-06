@@ -81,6 +81,22 @@ export const appRouter = [
         ]
     },
     {
+        path: '/shop',
+        icon: 'md-basket',
+        name: 'shop',
+        title: '商城管理',
+        component: () => import('@/views/main.vue'),
+        children: [
+            {
+                path: '/shop/goods',
+                icon: 'md-cube',
+                title: '商品管理',
+                name: 'goods',
+                component: () => import('@/views/shop/goods')
+            }
+        ]
+    },
+    {
         path: '/system',
         icon: 'ios-cog-outline',
         name: 'system',

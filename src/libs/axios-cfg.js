@@ -6,7 +6,7 @@ import store from '@/store';
 import {router} from '@/router/index';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:1000',
+    baseURL: 'http://localhost:9000',
     timeout: 3000
     // withCredentials: true
 });

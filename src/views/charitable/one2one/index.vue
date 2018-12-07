@@ -35,8 +35,8 @@
             </div>
         </Card>
 
-        <AddDonation v-if="addDonationModal" :donationType="donationType" @cancel="onModalCancel"/>
-        <UpdateDonation v-if="updateDonationModal" :donationType="donationType" :donationId="updateDonationId"
+        <AddDonation v-if="addDonationModal" :one2oneType="one2oneType" @cancel="onModalCancel"/>
+        <UpdateDonation v-if="updateDonationModal" :one2oneType="one2oneType" :donationId="updateDonationId"
                         @cancel="onModalCancel"/>
     </div>
 </template>
@@ -110,7 +110,7 @@
                                     style: {marginRight: '5px'},
                                     on: {
                                         click: () => {
-                                            this.openAddModal(params.row.id)
+                                            this.openAddModal(params.row.donationId)
                                         }
                                     }
                                 }, '修改'),
@@ -124,7 +124,7 @@
                     pageSize: 10
                 },
                 removeObject: null,
-                donationType: null
+                one2oneType: null,
             }
         },
         components: {
@@ -208,10 +208,10 @@
                 }
                 this.setting.loading = false;
             },
-            async getDonationType() {
+            async getOne2oneType() {
                 try {
-                    let res = await post('/charitable/one2one/donationType');
-                    this.donationType = res.data;
+                    let res = await post('/charitable/one2one/one2oneType');
+                    this.one2oneType = res.data;
                 } catch (error) {
                     this.$throw(error)
                 }
@@ -223,14 +223,14 @@
              */
             openAddModal(donationId, type = 'update') {
                 if (donationId == null || type === 'update') {
-                    if (this.donationType == null) {
-                        this.getDonationType();
+                    if (this.one2oneType == null) {
+                        this.getOne2oneType();
                     }
                 }
                 if (donationId == null) {
                     this.addDonationModal = true;
                 } else if (type === 'update') {
-                    this.updateDonationId = uid;
+                    this.updateDonationId = donationId;
                     this.updateDonationModal = true;
                 }
             },

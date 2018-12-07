@@ -36,7 +36,7 @@
         </Card>
 
         <AddDonation v-if="addModal" :goodsType="goodsType" @cancel="onModalCancel"/>
-        <UpdateDonation v-if="updateModal" :goodsType="goodsType" :donationId="updateId"
+        <UpdateDonation v-if="updateModal" :goodsType="goodsType" :id="updateId"
                         @cancel="onModalCancel"/>
     </div>
 </template>
@@ -55,7 +55,6 @@
                 updateId: null,
                 resetPasswordUser: null,
                 selections: [],
-                removeModal: false,
                 setting: {
                     loading: true,
                     showBorder: true
@@ -65,9 +64,10 @@
                     value: ''
                 },
                 columns: [
-                    {title: 'ID', key: 'donationId', sortable: true},
-                    {title: '姓名', key: 'name', sortable: true},
-                    {title: '年龄', key: 'age', sortable: true},
+                    {title: 'ID', key: 'id', sortable: true},
+                    {title: 'SkuId', key: 'skuNo', sortable: true},
+                    {title: '商品名', key: 'skuName', sortable: true},
+                    {title: '库存', key: 'stock', sortable: true},
                     {
                         title: '状态',
                         key: 'status',
@@ -101,7 +101,7 @@
                                     style: {marginRight: '5px'},
                                     on: {
                                         click: () => {
-                                            this.lockUser(params.row)
+                                            this.lock(params.row)
                                         }
                                     }
                                 }, params.row.status == 1 ? '关闭' : '恢复'),
@@ -123,7 +123,6 @@
                     page: 1,
                     pageSize: 10
                 },
-                removeObject: null,
                 goodsType: null
             }
         },
@@ -149,39 +148,17 @@
                 this.getData();
             },
             /**
-             * @description 删除用户
-             */
-            async removeUser() {
-                this.removeModal = false;
-                if (this.removeObject == null) {
-                    this.$Message.warning("删除对象为空，无法继续执行！");
-                    return false;
-                }
-                this.setting.loading = true;
-                try {
-                    let res = await post('/system/user/remove/{uid}', null, {
-                        uid: this.removeObject.obj.id
-                    });
-                    this.$Message.success("删除成功");
-                    this.data.records.splice(this.removeObject.index, 1);
-                } catch (error) {
-                    this.$throw(error)
-                }
-                this.setting.loading = false;
-            },
-            /**
              * @description 关闭/开启公益项目
              */
-            async lockUser(obj) {
-                console.log(obj.donationId)
+            async lock(obj) {
                 this.setting.loading = true;
                 let status = obj.status;
                 let req_url = status == 1 ? 'lock' : 'unlock';
                 let req_rep = status == 1 ? 0 : 1;
                 let req_msg = status == 1 ? '已锁定' : '已解锁';
                 try {
-                    let res = await post('/charitable/one2one/{method}/{donationId}', null, {
-                        donationId: obj.donationId,
+                    let res = await post('/shop/sku/{method}/{id}', null, {
+                        id: obj.id,
                         method: req_url
                     })
                     this.$Message.destroy();
@@ -198,7 +175,7 @@
             async getData() {
                 this.setting.loading = true;
                 try {
-                    let res = await post('/shop/goods/list', {
+                    let res = await post('/shop/sku/list', {
                         page: this.dataFilter.page,
                         pageSize: this.dataFilter.pageSize
                     });
@@ -208,9 +185,9 @@
                 }
                 this.setting.loading = false;
             },
-            async getGoodsType() {
+            getGoodsType() {
                 try {
-                    let res = [{code:'1000001',desc:'书'}];
+                    let res = {data: [{code: Number(1000001), desc: '书'}]};
                     this.goodsType = res.data;
                 } catch (error) {
                     this.$throw(error)
@@ -221,16 +198,16 @@
              * @param donationId 公益id
              * @param type 打开类型
              */
-            openAddModal(donationId, type = 'update') {
-                if (donationId == null || type === 'update') {
+            openAddModal(id, type = 'update') {
+                if (id == null || type === 'update') {
                     if (this.goodsType == null) {
                         this.getGoodsType();
                     }
                 }
-                if (donationId == null) {
+                if (id == null) {
                     this.addModal = true;
                 } else if (type === 'update') {
-                    this.updateId = uid;
+                    this.updateId = id;
                     this.updateModal = true;
                 }
             },
@@ -260,7 +237,7 @@
             exportData(type) {
                 if (type === 1) {
                     this.$refs.table.exportCsv({
-                        filename: '用户数据-' + new Date().getTime(),
+                        filename: new Date().getTime(),
                         columns: this.columns.filter((col, index) => index > 1 && index < this.columns.length - 1),
                         data: this.data
                     });

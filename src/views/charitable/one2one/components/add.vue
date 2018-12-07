@@ -58,7 +58,7 @@
                     </Select>
                 </FormItem>
                 <FormItem label="图片" prop="img">
-                    <Upload v-model="data.img" action="//localhost:1000/FileUpload/FileUp"
+                    <Upload v-model="data.img" action="//localhost:9000/FileUpload/FileUp"
                             :format="['jpg','jpeg','png']"
                             :max-size="2048"
                             :on-success="handleSuccess"

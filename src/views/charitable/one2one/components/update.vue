@@ -6,7 +6,7 @@
                   :label-width="80">
                 <FormItem label="一对一捐助类型" prop="one2oneType">
                     <RadioGroup v-model="data.one2oneType">
-                        <Radio v-for="(item,index) in one2oneType" :key="item.code" :label="item.code">{{item.desc}}
+                        <Radio v-for="(item,index) in one2oneType" :key="index" :label="item.code">{{item.desc}}
                         </Radio>
                     </RadioGroup>
                 </FormItem>
@@ -54,8 +54,8 @@
 
                 <FormItem label="状态" prop="status">
                     <Select v-model.trim="data.status" style="width:100%">
-                        <Option v-for="item in [{label:'正常',value:1},{label:'关闭',value:0}]"
-                                :value="item.value" :key="item.value">{{ item.label }}
+                        <Option v-for="(item,index) in [{label:'正常',value:1},{label:'关闭',value:0}]"
+                                :value="item.value" :key="index">{{ item.label }}
                         </Option>
                     </Select>
                 </FormItem>

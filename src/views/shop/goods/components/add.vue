@@ -4,11 +4,20 @@
                :mask-closable="false" :closable="false">
             <Form ref="modalForm" :model="data" :rules="ruls"
                   :label-width="80">
-                <FormItem label="姓名" prop="name">
-                    <Input v-model.trim="data.user"></Input>
+                <FormItem label="商品名称" prop="sku_name">
+                    <Input v-model.trim="data.skuName"></Input>
                 </FormItem>
-                <FormItem label="年龄" prop="age">
-                    <InputNumber :min="0" :step="1" v-model.trim="data.age" style="width:100%"/>
+                <FormItem label="商品编号" prop="sku_no">
+                    <Input v-model.trim="data.skuNo"></Input>
+                </FormItem>
+                <FormItem label="价格" prop="price">
+                    <InputNumber :min="0" :step="1" v-model.trim="data.price" style="width:100%"/>
+                </FormItem>
+                <FormItem label="库存" prop="price">
+                    <InputNumber :min="0" :step="1" v-model.trim="data.stock" style="width:100%"/>
+                </FormItem>
+                <FormItem label="单位" prop="units">
+                    <Input v-model.trim="data.units"/>
                 </FormItem>
                 <FormItem label="状态" prop="status">
                     <Select v-model.trim="data.status" style="width:100%">
@@ -24,7 +33,14 @@
                     </RadioGroup>
                 </FormItem>
                 <FormItem label="图片" prop="img">
-                    <Upload action="//jsonplaceholder.typicode.com/posts/" :format="['png','jpg','jpeg']">
+                    <Upload v-model="data.img" action="//localhost:9000/FileUpload/FileUp"
+                            :format="['jpg','jpeg','png']"
+                            :max-size="2048"
+                            :on-success="handleSuccess"
+                            :on-error="handleError"
+                            :on-format-error="handleFormatError"
+                            :on-exceeded-size="handleMaxSize"
+                    >
                         <Button icon="ios-cloud-upload-outline">上传</Button>
                     </Upload>
                 </FormItem>
@@ -45,21 +61,27 @@
                 show: true,
                 loading: false,
                 data: {
-                    username: "",
-                    age: 0,
+                    skuName: "",
+                    skuNo: "",
+                    price: 0,
+                    stock: 0,
+                    units: "元",
                     status: 1,
-                    password: "",
-                    rePassword: "",
-                    roles: []
+                    goodsType: "",
                 },
                 ruls: {
-                    name: [
-                        {required: true, message: "用户名不能为空"},
-                        {pattern: /^(\w){4,16}$/, message: '用户名应为[A-Za-z0-9_]组成的4-16位字符'}
+                    skuName: [
+                        {required: true, message: "商品名不能为空"},
+                        {pattern: /^.{4,16}$/, message: '商品名应为4-16位字符'}
                     ],
-                    age: [{required: true, message: "年龄不能为空"}],
+                    skuNo: [
+                        {required: true, message: "商品名不能为空"},
+                        {pattern: /^.{4,16}$/, message: '商品名应为4-16位字符'}
+                    ],
+                    price: [{required: true, message: "价格不能为空"}],
+                    units: [{required: true, message: "单位不能为空"}],
+                    stock: [{required: true, message: "库存不能为空"}],
                     status: [{required: true, message: "用户状态不能为空"}],
-                    roles: [{required: true, message: "请至少选择一个角色"}]
                 }
             };
         },
@@ -70,6 +92,35 @@
             }
         },
         methods: {
+            handleSuccess(res, file) {
+                if (res.status !== 1) {
+                    this.$Notice.warning({
+                        title: '上传失败',
+                        desc: res.msg + ":" + res.data
+                    });
+                    return false;
+                }
+                this.data.img = res.data;
+                this.data.smallImg = res.data;
+            },
+            handleError(res, file) {
+                this.$Notice.warning({
+                    title: '上传失败',
+                    desc: res
+                });
+            },
+            handleFormatError(file) {
+                this.$Notice.warning({
+                    title: '上传格式有误',
+                    desc: '请上传jpg,jpeg,png格式的图片'
+                });
+            },
+            handleMaxSize(file) {
+                this.$Notice.warning({
+                    title: '文件太大了',
+                    desc: '请上传不超过2M的图片'
+                });
+            },
             /**
              * @description 关闭Modal
              * @param reload 是否重新加载数据
@@ -83,12 +134,7 @@
             ok() {
                 this.$refs.modalForm.validate(valid => {
                     if (valid) {
-                        let roles = []
-                        this.data.roles.forEach(el => {
-                            roles.push(this.roles[el]);
-                        })
                         let data = JSON.parse(JSON.stringify(this.data));
-                        data.roles = roles;
                         this.add(data)
                     }
                 });
@@ -99,8 +145,8 @@
             async add(data) {
                 this.loading = true;
                 try {
-                    let res = await post('/system/user/add', data)
-                    this.$Message.success("用户 " + data.username + " 添加成功");
+                    let res = await post('/shop/sku/add', data);
+                    this.$Message.success(data.skuName + " 添加成功");
                     this.cancel(true)
                 } catch (error) {
                     this.$throw(error)

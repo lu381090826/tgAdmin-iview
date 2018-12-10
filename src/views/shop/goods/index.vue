@@ -160,7 +160,7 @@
                     let res = await post('/shop/sku/{method}/{id}', null, {
                         id: obj.id,
                         method: req_url
-                    })
+                    });
                     this.$Message.destroy();
                     this.$Message.success(req_msg);
                     obj.status = req_rep;

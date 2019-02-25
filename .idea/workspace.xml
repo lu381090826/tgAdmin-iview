@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="441cedfb-a2f8-4ac4-a158-22401a9dc100" name="Default" comment="商品管理">
+    <list default="true" id="441cedfb-a2f8-4ac4-a158-22401a9dc100" name="Default" comment="商品">
+      <change afterPath="$PROJECT_DIR$/src/conts/GoodsType.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/goods/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/goods/components/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/goods/components/update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/goods/components/update.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/goods/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/goods/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,54 +17,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="add.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="55" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#InputNumber#0;n#FormItem#4;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/shop/goods/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+            <state relative-caret-position="893">
+              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ResError.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/libs/error/ResError.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsType.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/conts/GoodsType.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/update.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+            <state relative-caret-position="266">
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
-                <element signature="n#style#0;n#InputNumber#0;n#FormItem#2;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#Select#0;n#FormItem#5;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#InputNumber#0;n#FormItem#4;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="update.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/components/update.vue">
+        <entry file="file://$PROJECT_DIR$/src/views/system/user/components/update.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#Select#0;n#FormItem#8;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1976">
+              <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
+      <file leaf-file-name="add.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/components/add.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+            <state relative-caret-position="3439">
+              <caret line="182" column="70" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="70" />
               <folding>
-                <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#InputNumber#0;n#FormItem#0;n#div#0;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -93,8 +124,8 @@
       <find>handleSuccess</find>
       <find>one2oneType</find>
       <find>remove</find>
-      <find>lockUser</find>
-      <find>lock</find>
+      <find>img</find>
+      <find>goodstype</find>
     </findStrings>
     <replaceStrings>
       <replace>getGoodsType</replace>
@@ -122,10 +153,12 @@
         <option value="$PROJECT_DIR$/build/webpack.dev.config.js" />
         <option value="$PROJECT_DIR$/src/views/charitable/one2one/index.vue" />
         <option value="$PROJECT_DIR$/src/views/charitable/one2one/components/add.vue" />
+        <option value="$PROJECT_DIR$/src/views/charitable/one2one/components/update.vue" />
+        <option value="$PROJECT_DIR$/src/views/system/user/components/add.vue" />
+        <option value="$PROJECT_DIR$/src/views/shop/goods/index.vue" />
+        <option value="$PROJECT_DIR$/src/conts/GoodsType.js" />
         <option value="$PROJECT_DIR$/src/views/shop/goods/components/add.vue" />
         <option value="$PROJECT_DIR$/src/views/shop/goods/components/update.vue" />
-        <option value="$PROJECT_DIR$/src/views/charitable/one2one/components/update.vue" />
-        <option value="$PROJECT_DIR$/src/views/shop/goods/index.vue" />
       </list>
     </option>
   </component>
@@ -147,9 +180,10 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="x" value="261" />
+    <option name="y" value="172" />
+    <option name="width" value="1217" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -159,108 +193,61 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="conts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="charitable" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="charitable" type="462c0819:PsiDirectoryNode" />
-              <item name="one2one" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="charitable" type="462c0819:PsiDirectoryNode" />
-              <item name="one2one" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
               <item name="goods" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
+              <item name="watchdog-framework-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchdog-framework-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
               <item name="goods" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tgAdmin-iview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tgAdmin-iview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,7 +256,7 @@
     <property name="android.sdk.path" value="D:/AndroidProject/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../smart-bracelet" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -302,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -344,6 +331,15 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
     <configuration name="run dev" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -353,6 +349,10 @@
       <node-interpreter value="project" />
       <envs />
     </configuration>
+    <list>
+      <item itemvalue="npm.run dev" />
+      <item itemvalue="npm.build" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -370,8 +370,9 @@
       <workItem from="1542179105969" duration="1155000" />
       <workItem from="1542189844761" duration="7074000" />
       <workItem from="1544082065707" duration="4781000" />
-      <workItem from="1544150407239" duration="10613000" />
-      <workItem from="1544435802363" duration="596000" />
+      <workItem from="1544150407239" duration="9594000" />
+      <workItem from="1546044466488" duration="8265000" />
+      <workItem from="1546216877625" duration="1198000" />
     </task>
     <task id="LOCAL-00001" summary="商品">
       <created>1544090673849</created>
@@ -387,21 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544100954897</updated>
     </task>
-    <task id="LOCAL-00003" summary="商品管理">
-      <created>1544170928927</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1544170928927</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36380000" />
+    <option name="totallyTimeSpent" value="50283000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -412,12 +406,12 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3705128" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36944744" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.44487178" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16523606" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -427,6 +421,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -441,8 +436,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品" />
-    <MESSAGE value="商品管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="商品管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -450,59 +444,15 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/components/update.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#Select#0;n#FormItem#8;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/update.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3105">
           <caret line="210" column="30" lean-forward="true" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="30" />
-          <folding>
-            <element signature="e#2067#2092#0" expanded="true" />
-          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/modules/app.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -516,7 +466,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="50" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="50" />
           <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#1;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#InputNumber#0;n#FormItem#0;n#div#0;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -568,7 +518,7 @@
         <state relative-caret-position="390">
           <caret line="26" column="105" selection-start-line="26" selection-start-column="105" selection-end-line="26" selection-end-column="105" />
           <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#1;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#InputNumber#0;n#FormItem#0;n#div#0;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/system/user/components/add.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="26" column="85" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/modules/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -744,6 +687,9 @@
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/build/webpack.dev.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -760,24 +706,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/components/add.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="171" column="38" lean-forward="true" selection-start-line="171" selection-start-column="38" selection-end-line="171" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="99" column="90" selection-start-line="99" selection-start-column="90" selection-end-line="99" selection-end-column="90" />
+        <state relative-caret-position="3439">
+          <caret line="182" column="70" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="70" />
           <folding>
-            <element signature="e#2067#2092#0" expanded="true" />
+            <element signature="n#style#0;n#InputNumber#0;n#FormItem#0;n#div#0;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/system/user/components/update.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Main.vue">
@@ -794,41 +728,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="1077" column="6" selection-start-line="1077" selection-start-column="6" selection-end-line="1077" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/system/user/components/update.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1976">
+          <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/system/user/components/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/components/update.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="-3">
+          <caret line="180" column="19" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/charitable/one2one/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="38" column="76" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libs/error/ResError.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/conts/GoodsType.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="55" />
           <folding>
-            <element signature="n#style#0;n#Select#0;n#FormItem#8;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#InputNumber#0;n#FormItem#4;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/update.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+        <state relative-caret-position="266">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#2;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#Select#0;n#FormItem#5;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/shop/goods/components/add.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#InputNumber#0;n#FormItem#3;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#InputNumber#0;n#FormItem#4;n#Form#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

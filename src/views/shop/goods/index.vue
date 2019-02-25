@@ -45,6 +45,7 @@
     import {post} from '@/libs/axios-cfg'
     import AddDonation from './components/add.vue'
     import UpdateDonation from './components/update.vue'
+    import GoodsType from '@/conts/GoodsType'
 
     export default {
         data() {
@@ -187,7 +188,7 @@
             },
             getGoodsType() {
                 try {
-                    let res = {data: [{code: Number(1000001), desc: '书'}]};
+                    let res = {data: GoodsType};
                     this.goodsType = res.data;
                 } catch (error) {
                     this.$throw(error)

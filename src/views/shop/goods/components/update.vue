@@ -7,11 +7,20 @@
                 <FormItem label="商品名称" prop="sku_name">
                     <Input v-model.trim="data.skuName"></Input>
                 </FormItem>
+                <FormItem label="商品简单名称" prop="simple_name">
+                    <Input v-model.trim="data.simpleName"></Input>
+                </FormItem>
+                <FormItem label="描述" prop="sku_detail">
+                    <Input v-model.trim="data.skuDetail"></Input>
+                </FormItem>
                 <FormItem label="商品编号" prop="sku_no">
                     <Input v-model.trim="data.skuNo"></Input>
                 </FormItem>
                 <FormItem label="价格" prop="price">
                     <InputNumber :min="0" :step="1" v-model.trim="data.price" style="width:100%"/>
+                </FormItem>
+                <FormItem label="原价格" prop="originPrice">
+                    <InputNumber :min="0" :step="1" v-model.trim="data.originPrice" style="width:100%"/>
                 </FormItem>
                 <FormItem label="库存" prop="price">
                     <InputNumber :min="0" :step="1" v-model.trim="data.stock" style="width:100%"/>
@@ -44,6 +53,8 @@
                     >
                         <Button icon="ios-cloud-upload-outline">上传</Button>
                     </Upload>
+                    <div>文件名：{{data.img}}</div>
+                    <img :src="'http://120.79.191.116/upload/'+data.img" width="150">
                 </FormItem>
             </Form>
             <div slot="footer">
@@ -64,11 +75,14 @@
                 data: {
                     skuName: "",
                     skuNo: "",
+                    simpleName: "",
+                    skuDetail: "",
                     price: 0,
                     stock: 0,
                     units: "元",
                     status: 1,
                     goodsType: "",
+                    img: "",
                 },
                 ruls: {
                     skuName: [

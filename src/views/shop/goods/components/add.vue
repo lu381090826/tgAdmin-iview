@@ -7,11 +7,20 @@
                 <FormItem label="商品名称" prop="sku_name">
                     <Input v-model.trim="data.skuName"></Input>
                 </FormItem>
+                <FormItem label="商品简单名称" prop="simple_name">
+                    <Input v-model.trim="data.simpleName"></Input>
+                </FormItem>
+                <FormItem label="描述" prop="skuDetail">
+                    <Input v-model.trim="data.skuDetail"></Input>
+                </FormItem>
                 <FormItem label="商品编号" prop="sku_no">
                     <Input v-model.trim="data.skuNo"></Input>
                 </FormItem>
                 <FormItem label="价格" prop="price">
                     <InputNumber :min="0" :step="1" v-model.trim="data.price" style="width:100%"/>
+                </FormItem>
+                <FormItem label="原价格" prop="originPrice">
+                    <InputNumber :min="0" :step="1" v-model.trim="data.originPrice" style="width:100%"/>
                 </FormItem>
                 <FormItem label="库存" prop="price">
                     <InputNumber :min="0" :step="1" v-model.trim="data.stock" style="width:100%"/>
@@ -19,13 +28,13 @@
                 <FormItem label="单位" prop="units">
                     <Input v-model.trim="data.units"/>
                 </FormItem>
-                <FormItem label="状态" prop="status">
-                    <Select v-model.trim="data.status" style="width:100%">
-                        <Option v-for="item in [{label:'正常',value:1},{label:'关闭',value:0}]"
-                                :value="item.value" :key="item.value">{{ item.label }}
-                        </Option>
-                    </Select>
-                </FormItem>
+                <!--<FormItem label="状态" prop="status">-->
+                <!--<Select v-model.trim="data.status" style="width:100%">-->
+                <!--<Option v-for="item in [{label:'正常',value:1},{label:'关闭',value:0}]"-->
+                <!--:value="item.value" :key="item.value">{{ item.label }}-->
+                <!--</Option>-->
+                <!--</Select>-->
+                <!--</FormItem>-->
                 <FormItem label="商品类型" prop="goodsType">
                     <RadioGroup v-model="data.goodsType">
                         <Radio v-for="(item,index) in goodsType" :label="item.desc" :key="item.code">{{item.desc}}
@@ -64,6 +73,7 @@
                     skuName: "",
                     skuNo: "",
                     price: 0,
+                    originPrice: 0,
                     stock: 0,
                     units: "元",
                     status: 1,

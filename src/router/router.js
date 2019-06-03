@@ -92,8 +92,15 @@ export const appRouter = [
                 icon: 'md-cube',
                 title: '商品管理',
                 name: 'goods',
-                component: () => import('@/views/shop/goods')
-            }
+                component: () => import('@/views/shop/goods'),
+            },
+            {
+                path: '/shop/goods/updateGoods',
+                icon: 'md-cube',
+                title: '添加商品',
+                name: 'addGoods',
+                component: () => import('@/views/shop/goods/updateGoods')
+            },
         ]
     },
     {

@@ -200,17 +200,9 @@
              * @param type 打开类型
              */
             openAddModal(id, type = 'update') {
-                if (id == null || type === 'update') {
-                    if (this.goodsType == null) {
-                        this.getGoodsType();
-                    }
-                }
-                if (id == null) {
-                    this.addModal = true;
-                } else if (type === 'update') {
-                    this.updateId = id;
-                    this.updateModal = true;
-                }
+                this.$router.push({
+                    name:'addGoods'
+                })
             },
             /**
              * @description 关闭模态窗口

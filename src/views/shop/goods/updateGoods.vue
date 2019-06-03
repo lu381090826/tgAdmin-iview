@@ -1,7 +1,6 @@
 <template>
     <div>
-        <Modal v-model="show" title="更新用户"
-               :mask-closable="false" :closable="false">
+        <Card>
             <Form ref="modalForm" :model="data" :rules="ruls"
                   :label-width="80">
                 <FormItem label="商品名称" prop="sku_name">
@@ -10,7 +9,7 @@
                 <FormItem label="商品简单名称" prop="simple_name">
                     <Input v-model.trim="data.simpleName"></Input>
                 </FormItem>
-                <FormItem label="描述" prop="sku_detail">
+                <FormItem label="描述" prop="skuDetail">
                     <Input v-model.trim="data.skuDetail"></Input>
                 </FormItem>
                 <FormItem label="商品编号" prop="sku_no">
@@ -28,17 +27,16 @@
                 <FormItem label="单位" prop="units">
                     <Input v-model.trim="data.units"/>
                 </FormItem>
-                <FormItem label="状态" prop="status">
-                    <Select v-model.trim="data.status" style="width:100%">
-                        <Option v-for="item in [{label:'正常',value:1},{label:'关闭',value:0}]"
-                                :value="item.value" :key="item.value">{{ item.label }}
-                        </Option>
-                    </Select>
-                </FormItem>
+                <!--<FormItem label="状态" prop="status">-->
+                <!--<Select v-model.trim="data.status" style="width:100%">-->
+                <!--<Option v-for="item in [{label:'正常',value:1},{label:'关闭',value:0}]"-->
+                <!--:value="item.value" :key="item.value">{{ item.label }}-->
+                <!--</Option>-->
+                <!--</Select>-->
+                <!--</FormItem>-->
                 <FormItem label="商品类型" prop="goodsType">
                     <RadioGroup v-model="data.goodsType">
-                        <Radio v-for="(item,index) in goodsType" :label="item.code" :key="index">
-                            {{item.desc}}
+                        <Radio v-for="(item,index) in goodsType" :label="item.desc" :key="item.code">{{item.desc}}
                         </Radio>
                     </RadioGroup>
                 </FormItem>
@@ -53,36 +51,46 @@
                     >
                         <Button icon="ios-cloud-upload-outline">上传</Button>
                     </Upload>
-                    <div>文件名：{{data.img}}</div>
-                    <img :src="'http://120.79.191.116/upload/'+data.img" width="150">
+                </FormItem>
+                <FormItem label="商品详情" prop="img">
+                    <Upload v-model="data.detail" action="//localhost:9000/FileUpload/FileUp"
+                            :format="['jpg','jpeg','png']"
+                            :max-size="2048"
+                            :on-success="handleSuccess"
+                            :on-error="handleError"
+                            :on-format-error="handleFormatError"
+                            :on-exceeded-size="handleMaxSize"
+                    >
+                        <Button icon="ios-cloud-upload-outline">上传</Button>
+                    </Upload>
                 </FormItem>
             </Form>
             <div slot="footer">
                 <Button type="default" :disabled="loading" @click="cancel(false)">取消</Button>
                 <Button type="primary" :loading="loading" @click="ok">确定</Button>
             </div>
-        </Modal>
+        </Card>
     </div>
 </template>
 <script>
     import {post} from '@/libs/axios-cfg'
+    import goodsType from '@/conts/GoodsType'
 
     export default {
         data() {
             return {
                 show: true,
                 loading: false,
+                goodsType: null,
                 data: {
                     skuName: "",
                     skuNo: "",
-                    simpleName: "",
-                    skuDetail: "",
                     price: 0,
+                    originPrice: 0,
                     stock: 0,
                     units: "元",
                     status: 1,
                     goodsType: "",
-                    img: "",
                 },
                 ruls: {
                     skuName: [
@@ -100,18 +108,8 @@
                 }
             };
         },
-        props: {
-            goodsType: {
-                type: Array,
-                default: []
-            },
-            id: {
-                type: String,
-                default: {}
-            }
-        },
         created() {
-            this.getUserInfo();
+            this.goodsType = goodsType;
         },
         methods: {
             handleSuccess(res, file) {
@@ -148,23 +146,7 @@
              * @param reload 是否重新加载数据
              */
             cancel(reload = false) {
-                this.$emit("cancel", "update", reload);
-            },
-            /**
-             * @description 获取用户信息
-             */
-            async getUserInfo() {
-                try {
-                    let res = await post('/shop/sku/get/id/{id}', null, {
-                        id: this.id
-                    });
-                    this.data = res.data;
-                    this.data.goodsType = Number(this.data.goodsType);
-                    console.log(this.data.goodsType);
-                    console.log(this.goodsType);
-                } catch (error) {
-                    this.$throw(error)
-                }
+                this.$emit("cancel", "add", reload);
             },
             /**
              * @description 确定按钮单击回调
@@ -173,20 +155,18 @@
                 this.$refs.modalForm.validate(valid => {
                     if (valid) {
                         let data = JSON.parse(JSON.stringify(this.data));
-                        this.update(data)
+                        this.add(data)
                     }
                 });
             },
             /**
-             * @description 更新用户数据请求
+             * @description 添加用户数据请求
              */
-            async update(data) {
+            async add(data) {
                 this.loading = true;
                 try {
-                    let res = await post('/shop/sku/update/{id}', data, {
-                        id: this.data.id
-                    });
-                    this.$Message.success("更新成功");
+                    let res = await post('/shop/sku/add', data);
+                    this.$Message.success(data.skuName + " 添加成功");
                     this.cancel(true)
                 } catch (error) {
                     this.$throw(error)
